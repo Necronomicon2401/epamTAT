@@ -22,7 +22,7 @@ public class SuperlamaTest extends Assertions {
         inputQuantity.sendKeys("0");
 
         WebElement addingInBasketButton = new WebDriverWait(driver, 10)
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='В корзину']")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='button-cart']")));
         addingInBasketButton.click();
 
         WebElement goToOrderPageButton = new WebDriverWait(driver, 10)
