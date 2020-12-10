@@ -21,11 +21,11 @@ public class SuperlamaTest extends Assertions {
         WebElement inputQuantity = driver.findElement(By.xpath("//input[@class='quantity-productcart']"));
         inputQuantity.sendKeys("0");
 
-        WebElement addingInBasketButton = new WebDriverWait(driver,10)
+        WebElement addingInBasketButton = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@value='В корзину']")));
         addingInBasketButton.click();
 
-        WebElement goToOrderPageButton = new WebDriverWait(driver,10)
+        WebElement goToOrderPageButton = new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@style='float: right']")));
         goToOrderPageButton.click();
 
@@ -34,7 +34,4 @@ public class SuperlamaTest extends Assertions {
         Assert.assertEquals("10", itemsInOrder.getAttribute("value"));
 
     }
-
-
-
 }
