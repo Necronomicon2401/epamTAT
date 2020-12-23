@@ -7,13 +7,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import page.*;
 
 
 public class SuperlamaTest extends Assertions {
     public static final String FIRST_LINK = "https://superlama.by/kulon-harry-potter";
 
-    @Test
-    public void testAddedLikedItems() {
+   @Test
+    public void testAddedLikedItemsWithoutClasses() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get(FIRST_LINK);
@@ -33,5 +34,16 @@ public class SuperlamaTest extends Assertions {
 
         Assert.assertEquals("10", itemsInOrder.getAttribute("value"));
 
+    }
+
+    @Test
+    public void testAddingItemsInBasket() throws Exception{
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        ProductPage productPage = new ProductPage(new ChromeDriver());
+        String expected = productPage.totalPrice.getText();
+        expected.trim();
+        OrderPage orderPage = productPage.addingItemsInBasket();
+        String actual = orderPage.totalPriceInBasket.getText();
+        Assert.assertEquals(expected, actual);
     }
 }
