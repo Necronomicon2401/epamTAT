@@ -1,0 +1,7 @@
+<suite name="Smoke" verbose="1">
+    <test name="UserLogin">
+        <classes>
+            <class name="com.epam.framework.test.TestLogin"/>
+        </classes>
+    </test>
+</suite>
